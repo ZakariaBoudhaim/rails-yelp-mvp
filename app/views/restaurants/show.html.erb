@@ -1,0 +1,41 @@
+<!--<div class="container mt-5">
+  <h1><%= @restaurant.name %> <small>(<%= @restaurant.category %>)</small></h1>
+  <ul>
+    <li>Address: <%= @restaurant.address %></li>
+    <li>phone: <%= @restaurant.phone_number %></li>
+  </ul>
+
+  <%= link_to "Edit #{@restaurant.name}", edit_restaurant_path(@restaurant) %>
+  <br>
+  <%= link_to "Delete #{@restaurant.name}", restaurant_path(@restaurant), data: { turbo_method: :delete, turbo_confirm: "Are your sure?" } %>
+  <br>
+  <%= link_to "Back to all restaurants", restaurants_path %>
+</div>-->
+
+
+
+    <div class="container">
+        <h1><%= @restaurant.name %></h1>
+        <div class="cardcontainer">
+            <div class="photo">
+                <img src="https://source.unsplash.com/random/?restaurant">
+                <div class="photos">Photos</div>
+            </div>
+            <div class="content">
+                <p class="txt4"><%= @restaurant.address %></p>
+                <p class="txt5">+<%= @restaurant.phone_number %></p>
+            </div>
+            <div class="footer ">
+            <div class="d-flex justify-content-between">
+                <p><a class="waves-effect waves-light btn" href="<%=edit_restaurant_path(@restaurant)%>">edit</a> <%= link_to "delete", restaurant_path(@restaurant), data: { turbo_method: :delete, turbo_confirm: "Are your sure?" }, class: "btn btn-warning justify-content-between wrn" %> </div>
+                <p class="txt3"><i class="far fa-clock"></i>10 Minutes Ago <span class="comments"><i class="fas fa-comments"></i>45 Comments</span></p>
+                <%=  %>
+            </div>
+        </div>
+    </div>
+
+<%=simple_form_for [@restaurant, @review ] do |f|%>
+                  <%= f.input :content %>
+                  <%= f.input :rating, collection: 0..5 %>
+                  <%= f.submit%>
+                  <%end %>

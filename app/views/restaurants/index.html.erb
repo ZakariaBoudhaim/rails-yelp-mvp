@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h1>All Restaurants</h1>
+
+<%= link_to "Add a Restaurant", new_restaurant_path , class: "btn btn-primary mb-5" %>
+ <hr>
+  <ul class="list-inline">
+
+
+    <% @restaurants.each do |restaurant| %>
+
+        <li>
+          <div class="container">
+            <div class="card" style="width: 20rem;">
+                <img src="https://source.unsplash.com/random/?restaurant" class="card-img-top" alt="Accroche HTML">
+                <div class="card-body">
+                    <h2 class="card-title"><%= link_to  restaurant.name  %></h2>
+
+                    <%=link_to "info", restaurant_path(restaurant), class: "btn btn-primary mb-3" %>
+                </div>
+            </div>
+          </div>
+        </li>
+
+    <% end %>
+  </ul>
+
+
+</div>
+
+
+<hr>
